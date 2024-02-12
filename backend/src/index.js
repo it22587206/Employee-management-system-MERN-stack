@@ -3,6 +3,7 @@ import logger from './utils/logger.js'
 import  cors from 'cors'
 import dotenv from 'dotenv'
 import ememployee from './routes/employee.routes.js'
+import {connect} from './utils/database.connection.js'
 const app = express();
 dotenv.config()
 
@@ -15,6 +16,7 @@ const config={
 app.use(cors())
 
 app.listen(PORT, () => {
+  connect()
   logger.info(`Server is running on port ${PORT}`);
 });
 
